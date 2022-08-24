@@ -184,18 +184,16 @@ jsonValue.writeTo(writer, WriterConfig.PRETTY_PRINT);
 
 For more details, have a look at the [JavaDoc](http://www.javadoc.io/doc/com.github.bingoohuang/minijson/).
 
-Concurrency
------------
+## Concurrency
 
 The JSON structures in this library (`JsonObject` and `JsonArray`) are deliberately **not thread-safe** to keep them fast and simple. In the rare case that JSON data structures must be accessed from multiple threads, while at least one of these threads modifies their contents, the application must ensure proper synchronization.
 
 Iterators will throw a `ConcurrentModificationException` when the contents of
 a JSON structure have been modified after the creation of the iterator.
 
-Performance
------------
+## Performance
 
-I've spent days benchmarking and tuning minijson's reading and writing performance. You can see from the charts below that it performs quite reasonably. But damn, it's not quite as fast as Jackson! However, given that Jackson is a very complex machine compared to minijson, I think for the minimalism of this parser, the results are quite good.
+I've spent days benchmarking and tuning mini-json's reading and writing performance. You can see from the charts below that it performs quite reasonably. But damn, it's not quite as fast as Jackson! However, given that Jackson is a very complex machine compared to minijson, I think for the minimalism of this parser, the results are quite good.
 
 Below is the result of a performance comparison with other parsers, namely
 [org.json](http://www.json.org/java/index.html) 20141113,
@@ -213,45 +211,28 @@ All benchmarks can be found in [com.github.bingoohuang.minijson.performancetest]
 
 ![Read/Write performance compared to other parsers](https://raw.github.com/bingoohuang/minijson/master/com.github.bingoohuang.minijson.performancetest/performance-caliper.png "Read/Write performance compared to other parsers")
 
-Who is using minijson?
---------------------------
-
-Here are some projects that use minijson:
-
-* [Hazelcast](http://hazelcast.org/)
-* [Eclipse RAP](http://eclipse.org/rap)
-* [Box.com Java SDK](http://opensource.box.com/box-java-sdk/)
-* [jshint-eclipse](https://github.com/eclipsesource/jshint-eclipse)
-* [tern.java](https://github.com/angelozerr/tern.java)
-* [Human JSON](https://github.com/laktak/hjson-java)
-* [therapi-runtime-javadoc](https://github.com/dnault/therapi-runtime-javadoc)
-* [RestFB](https://github.com/restfb/restfb)
-
-Include
--------
+## Include
 
 You can include minijson from Maven Central by adding this dependency to your `pom.xml`:
 
 ```xml
 <dependency>
   <groupId>com.github.bingoohuang</groupId>
-  <artifactId>minijson</artifactId>
-  <version>0.9.5</version>
+  <artifactId>mini-json</artifactId>
+  <version>0.0.1</version>
 </dependency>
 ```
 
 Development snapshots are available on [oss.sonatype.org](https://oss.sonatype.org/content/repositories/snapshots/com/eclipsesource/minijson/minijson/).
 
-Build
------
+## Build
 
-To build minijson on your machine, checkout the repository, `cd` into it, and call:
-```
-mvn clean install
-```
+To build mini-json on your machine, checkout the repository, `cd` into it, and call:
+
+`mvn clean install`
+
 A continuous integration build is running at [Travis-CI](https://travis-ci.org/bingoohuang/minijson).
 
-License
--------
+## License
 
 The code is available under the terms of the [MIT License](http://opensource.org/licenses/MIT).
