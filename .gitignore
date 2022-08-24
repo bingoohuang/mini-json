@@ -1,3 +1,8 @@
 bin/
 target/
 .history/
+.idea/
+.settings/
+.classpath
+.project
+.code/

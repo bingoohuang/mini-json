@@ -1,11 +1,4 @@
-minimal-json [UNMAINTAINED]
-===========================
-
-*I'm glad to see that minimal-json is still used, however, I can't maintain this project anymore. If anyone actively maintains a fork that follows the ideas of minimal-json, I'm happy to link to this repository here. Thank you.*
-
-[![License](https://img.shields.io/github/license/ralfstx/minimal-json.svg)](https://github.com/ralfstx/minimal-json/blob/master/LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/com.eclipsesource.minimal-json/minimal-json.svg)](http://search.maven.org/#search|ga|1|g%3A%22com.eclipsesource.minimal-json%22%20a%3A%22minimal-json%22)
-[![Build Status](https://img.shields.io/travis/ralfstx/minimal-json.svg)](http://travis-ci.org/ralfstx/minimal-json)
+# mini-json
 
 A fast and minimal JSON parser and writer for Java.
 It's not an object mapper, but a bare-bones library that aims at being
@@ -15,12 +8,11 @@ It's not an object mapper, but a bare-bones library that aims at being
 * **lightweight**: object representation with minimal memory footprint (e.g. no HashMaps)
 * **simple**: reading, writing and modifying JSON with minimal code (short names, fluent style)
 
-Minimal-json is fully covered by unit tests, and field-tested by the [Eclipse RAP project](http://eclipse.org/rap) and others (see below). The JAR contains a **valid OSGi** bundle manifest and can be used in OSGi environments without modifications.
+mini-json is fully covered by unit tests, and field-tested by the [Eclipse RAP project](http://eclipse.org/rap) and others (see below). The JAR contains a **valid OSGi** bundle manifest and can be used in OSGi environments without modifications.
 
-Usage
------
+## Usage
 
-The class `Json` is the entrypoint to the minimal-json API, use it to parse and to create JSON.
+The class `Json` is the entrypoint to the mini-json API, use it to parse and to create JSON.
 
 ### Parse JSON
 
@@ -190,7 +182,7 @@ String json = jsonValue.toString(WriterConfig.PRETTY_PRINT);
 jsonValue.writeTo(writer, WriterConfig.PRETTY_PRINT);
 ```
 
-For more details, have a look at the [JavaDoc](http://www.javadoc.io/doc/com.eclipsesource.minimal-json/minimal-json/).
+For more details, have a look at the [JavaDoc](http://www.javadoc.io/doc/com.github.bingoohuang/minijson/).
 
 Concurrency
 -----------
@@ -203,7 +195,7 @@ a JSON structure have been modified after the creation of the iterator.
 Performance
 -----------
 
-I've spent days benchmarking and tuning minimal-json's reading and writing performance. You can see from the charts below that it performs quite reasonably. But damn, it's not quite as fast as Jackson! However, given that Jackson is a very complex machine compared to minimal-json, I think for the minimalism of this parser, the results are quite good.
+I've spent days benchmarking and tuning minijson's reading and writing performance. You can see from the charts below that it performs quite reasonably. But damn, it's not quite as fast as Jackson! However, given that Jackson is a very complex machine compared to minijson, I think for the minimalism of this parser, the results are quite good.
 
 Below is the result of a performance comparison with other parsers, namely
 [org.json](http://www.json.org/java/index.html) 20141113,
@@ -211,20 +203,20 @@ Below is the result of a performance comparison with other parsers, namely
 [Jackson](http://wiki.fasterxml.com/JacksonHome) 2.5.0, and
 [JSON.simple](https://code.google.com/p/json-simple/) 1.1.1.
 In this benchmark, two example JSON texts are parsed into a Java object and then serialized to JSON again.
-All benchmarks can be found in [com.eclipsesource.json.performancetest](https://github.com/ralfstx/minimal-json/tree/master/com.eclipsesource.json.performancetest).
+All benchmarks can be found in [com.github.bingoohuang.minijson.performancetest](https://github.com/bingoohuang/minijson/tree/master/com.github.bingoohuang.minijson.performancetest).
 
-[rap.json](https://github.com/ralfstx/minimal-json/blob/master/com.eclipsesource.json.performancetest/src/main/resources/input/rap.json), ~ 30kB
+[rap.json](https://github.com/bingoohuang/minijson/blob/master/com.github.bingoohuang.minijson.performancetest/src/main/resources/input/rap.json), ~ 30kB
 
-![Read/Write performance compared to other parsers](https://raw.github.com/ralfstx/minimal-json/master/com.eclipsesource.json.performancetest/performance-rap.png "Read/Write performance compared to other parsers")
+![Read/Write performance compared to other parsers](https://raw.github.com/bingoohuang/minijson/master/com.github.bingoohuang.minijson.performancetest/performance-rap.png "Read/Write performance compared to other parsers")
 
-[caliper.json](https://github.com/ralfstx/minimal-json/blob/master/com.eclipsesource.json.performancetest/src/main/resources/input/caliper.json), ~ 83kB
+[caliper.json](https://github.com/bingoohuang/minijson/blob/master/com.github.bingoohuang.minijson.performancetest/src/main/resources/input/caliper.json), ~ 83kB
 
-![Read/Write performance compared to other parsers](https://raw.github.com/ralfstx/minimal-json/master/com.eclipsesource.json.performancetest/performance-caliper.png "Read/Write performance compared to other parsers")
+![Read/Write performance compared to other parsers](https://raw.github.com/bingoohuang/minijson/master/com.github.bingoohuang.minijson.performancetest/performance-caliper.png "Read/Write performance compared to other parsers")
 
-Who is using minimal-json?
+Who is using minijson?
 --------------------------
 
-Here are some projects that use minimal-json:
+Here are some projects that use minijson:
 
 * [Hazelcast](http://hazelcast.org/)
 * [Eclipse RAP](http://eclipse.org/rap)
@@ -238,26 +230,26 @@ Here are some projects that use minimal-json:
 Include
 -------
 
-You can include minimal-json from Maven Central by adding this dependency to your `pom.xml`:
+You can include minijson from Maven Central by adding this dependency to your `pom.xml`:
 
 ```xml
 <dependency>
-  <groupId>com.eclipsesource.minimal-json</groupId>
-  <artifactId>minimal-json</artifactId>
+  <groupId>com.github.bingoohuang</groupId>
+  <artifactId>minijson</artifactId>
   <version>0.9.5</version>
 </dependency>
 ```
 
-Development snapshots are available on [oss.sonatype.org](https://oss.sonatype.org/content/repositories/snapshots/com/eclipsesource/minimal-json/minimal-json/).
+Development snapshots are available on [oss.sonatype.org](https://oss.sonatype.org/content/repositories/snapshots/com/eclipsesource/minijson/minijson/).
 
 Build
 -----
 
-To build minimal-json on your machine, checkout the repository, `cd` into it, and call:
+To build minijson on your machine, checkout the repository, `cd` into it, and call:
 ```
 mvn clean install
 ```
-A continuous integration build is running at [Travis-CI](https://travis-ci.org/ralfstx/minimal-json).
+A continuous integration build is running at [Travis-CI](https://travis-ci.org/bingoohuang/minijson).
 
 License
 -------
